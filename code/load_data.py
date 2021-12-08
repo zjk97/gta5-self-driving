@@ -1,11 +1,11 @@
-from typing import final
-from matplotlib.pyplot import axis
+# from typing import final
+# from matplotlib.pyplot import axis
 import numpy as np
 import pandas as pd
 from collections import Counter
 from random import shuffle
 
-from commandlist import left, right
+# from commandlist import left, right
 
 def load_data():
     BALANCE_FACTOR = 5

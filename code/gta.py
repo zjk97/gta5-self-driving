@@ -3,7 +3,7 @@ from operator import pos
 import os
 
 from matplotlib.pyplot import axis
-import gym
+# import gym
 import numpy as np
 from numpy.lib.function_base import cov
 import tensorflow as tf
@@ -14,9 +14,9 @@ from tensorflow.keras.layers import MaxPool2D
 from tensorflow.keras.layers import BatchNormalization
 from tensorflow.keras.layers import Dropout
 from tensorflow.keras.layers import Flatten
-from win32gui import WidenPath
+# from win32gui import WidenPath
 
-from directkeys import D
+# from directkeys import D
 
 # Killing optional CPU driver warnings
 
