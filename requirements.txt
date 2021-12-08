@@ -1,1 +1,2 @@
-pynput==1.7.5
+pypiwin32==302;platform_system == "Windows"
+PyAutoGUI==0.9.53
