@@ -7,4 +7,4 @@
  * Jake Zhang
 
 ## Notes
- * For windows users, execute main.py from Command Prompt instead of a linux based terminal
+ * This project was developed on Windows, execute main.py from Command Prompt instead of a linux based terminal
