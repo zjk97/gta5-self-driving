@@ -1,2 +1,3 @@
-__pycache__/*
+*/__pycache__/*
 env/*
+gta_train_data_*

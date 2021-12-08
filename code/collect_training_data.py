@@ -56,16 +56,17 @@ def main():
         keyPressed = key_check()
 
         onehot = convert_to_onehot(keyPressed)
-        print(onehot)
+        # print(onehot)
 
         train_data.append([screen, onehot])
         
         if len(train_data) % 1000 == 0:
             print("the size of training data is: " + str(len(train_data)))
-            if len(train_data) == 10000:
+            if len(train_data) % 10000 == 0:
                 file_name = "gta_train_data_{}.npy".format(sample_number)
                 np.save(file_name, train_data)
-                print("10 thousands sample achieved, saved")
+                print("10 thousand samples achieved, saved")
+                train_data = []
                 sample_number += 1
 
         # curTime = time.time() - last_time
