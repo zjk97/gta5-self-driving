@@ -12,7 +12,7 @@ def load_data():
     num_data = 5
     final_data = []
 
-    limit = 2000
+    limit = 10000
 
     for i in range(2, 3):
         train_data = list(np.load("gta_train_data_{}.npy".format(i), allow_pickle=True))
@@ -65,9 +65,13 @@ def load_data():
         print(len(lefts))
         print(len(rights))
 
-        balanced_length = BALANCE_FACTOR * (len(lefts) + len(rights))
+        while len(forwards) < limit:
+            forwards = forwards + forwards
+        forwards = forwards[:limit]
 
-        forwards = forwards[:balanced_length]
+        # balanced_length = BALANCE_FACTOR * (len(lefts) + len(rights))
+
+        # forwards = forwards[:balanced_length]
         print(len(forwards))
 
         final_data = final_data + forwards + lefts + rights + backs
