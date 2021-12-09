@@ -8,11 +8,13 @@ from random import shuffle
 # from commandlist import left, right
 
 def load_data():
-    BALANCE_FACTOR = 5
+    BALANCE_FACTOR = 3
     num_data = 5
     final_data = []
 
-    for i in range(1, num_data):
+    limit = 2000
+
+    for i in range(2, 3):
         train_data = list(np.load("gta_train_data_{}.npy".format(i), allow_pickle=True))
         df = pd.DataFrame(train_data)
         print(df.head())
@@ -31,20 +33,42 @@ def load_data():
             choice = data[1]
 
             if choice == [1,0,0,0]:
-                lefts.append([img,choice])
+                for i in range(10):
+                    lefts.append([img,choice])
             elif choice == [0,1,0,0]:
                 forwards.append([img,choice])
             elif choice == [0,0,1,0]:
-                rights.append([img,choice])
+                for i in range(20):
+                    rights.append([img,choice])
             elif choice == [0,0,0,1]:
                 backs.append([img,choice])
             else:
                 print("no data")
 
+        print("before duping:")
+        print(len(lefts))
+        print(len(rights))
+        print("duping...")
+        while len(lefts) > 0 and len(lefts) < limit:
+            lefts = lefts + lefts
+            # print("new left" + str(len(lefts)))
+        while len(rights) > 0 and len(rights) < limit:
+            rights = rights + rights
+            # print("new right" + str(len(rights)))
+        shuffle(lefts)
+        shuffle(rights)
+        if len(lefts) >= limit:
+            lefts = lefts[:limit]
+        if len(rights) >= limit:
+            rights = rights[:limit]
+        print("after duping:")
+        print(len(lefts))
+        print(len(rights))
 
         balanced_length = BALANCE_FACTOR * (len(lefts) + len(rights))
 
         forwards = forwards[:balanced_length]
+        print(len(forwards))
 
         final_data = final_data + forwards + lefts + rights + backs
     print(len(final_data))
