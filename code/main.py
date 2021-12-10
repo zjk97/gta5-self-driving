@@ -4,7 +4,7 @@ from tensorflow.python.keras.backend import dtype
 import gta
 import tensorflow as tf
 from tensorflow.keras.optimizers import Adam
-from tqdm import tqdm
+# from tqdm import tqdm
 from load_data import load_data
 
 

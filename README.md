@@ -7,7 +7,6 @@
  * Jake Zhang
 
 ## Training Data
- * Training data are too large for git. We have saved them on Google Drive.
  * Data collected manually from GTA5 custom race
  * Settings: Noon, bright, no traffic, no pedestrians
  * Vehicle: BMX bike (duh!)
